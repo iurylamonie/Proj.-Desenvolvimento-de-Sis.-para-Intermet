@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTLoja", "RESTLoja\RESTLoja.csproj", "{4CE32A8E-5828-41BC-B89E-8875DF0165A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tabelas SQL", "Tabelas SQL", "{A01A9561-5461-4741-AA01-76898399E379}"
+	ProjectSection(SolutionItems) = preProject
+		Tabelas SQL\dbo.Funcionario.sql = Tabelas SQL\dbo.Funcionario.sql
+		Tabelas SQL\dbo.Pagamento.sql = Tabelas SQL\dbo.Pagamento.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

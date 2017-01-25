@@ -383,7 +383,7 @@ namespace RESTLoja.Models
 		
 		private System.Nullable<int> _anoReferente;
 		
-		private System.Nullable<double> _valorPago;
+		private string _valorPago;
 		
 		private EntityRef<Funcionario> _Funcionario;
 		
@@ -401,7 +401,7 @@ namespace RESTLoja.Models
     partial void OnmesReferenteChanged();
     partial void OnanoReferenteChanging(System.Nullable<int> value);
     partial void OnanoReferenteChanged();
-    partial void OnvalorPagoChanging(System.Nullable<double> value);
+    partial void OnvalorPagoChanging(string value);
     partial void OnvalorPagoChanged();
     #endregion
 		
@@ -515,8 +515,8 @@ namespace RESTLoja.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_valorPago", DbType="Float")]
-		public System.Nullable<double> valorPago
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_valorPago", DbType="NChar(10)")]
+		public string valorPago
 		{
 			get
 			{

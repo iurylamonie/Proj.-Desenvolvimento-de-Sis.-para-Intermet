@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Loja">
   <DataContextMoniker Name="/LojaDataContext" />
   <nestedChildShapes>
-    <classShape Id="16b6af64-fbf9-4944-9a35-8881a7a6e3f1" absoluteBounds="0.75, 1, 2, 2.5401025390625005">
+    <classShape Id="0845737a-3542-4c8b-bbf5-c21496e08595" absoluteBounds="0.5, 1.125, 2, 2.5401025390625005">
       <DataClassMoniker Name="/LojaDataContext/Funcionario" />
       <nestedChildShapes>
-        <elementListCompartment Id="bb13a212-b70f-4003-b679-a4cb2a033338" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="423907cf-d179-484d-8240-ebf27a455ae9" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2184d61a-17e1-4439-993e-e1a2f0ed1810" absoluteBounds="3.5, 1.25, 2, 1.9631982421875003">
+    <classShape Id="d0b4dd7e-4bdc-477b-898f-6757c27498cb" absoluteBounds="3.5, 1.25, 2, 1.9631982421875003">
       <DataClassMoniker Name="/LojaDataContext/Pagamento" />
       <nestedChildShapes>
-        <elementListCompartment Id="2bb9f305-8384-4a50-8a9b-91b8f6f9c35f" absoluteBounds="3.515, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9858233b-1151-4c05-a3a3-b1719b5b9fd5" absoluteBounds="3.515, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.23159912109375); (3.5 : 2.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 2.23159912109375); (3.5 : 2.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LojaDataContext/Funcionario/Funcionario_Pagamento" />
       <nodes>
-        <classShapeMoniker Id="16b6af64-fbf9-4944-9a35-8881a7a6e3f1" />
-        <classShapeMoniker Id="2184d61a-17e1-4439-993e-e1a2f0ed1810" />
+        <classShapeMoniker Id="0845737a-3542-4c8b-bbf5-c21496e08595" />
+        <classShapeMoniker Id="d0b4dd7e-4bdc-477b-898f-6757c27498cb" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

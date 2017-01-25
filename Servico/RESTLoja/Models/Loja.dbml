@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SiPA" Class="LojaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=IURY-NOTEBOOK\ILDEVELOPER;Initial Catalog=SiPA;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SiPAConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-F1JDHKU\SQLEXPRESS;Initial Catalog=SiPA;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SiPAConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Funcionario" Member="Funcionarios">
     <Type Name="Funcionario">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -21,7 +21,7 @@
       <Column Name="dataPagamento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="mesReferente" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="anoReferente" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="valorPago" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="valorPago" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Association Name="Funcionario_Pagamento" Member="Funcionario" ThisKey="funcionario_id" OtherKey="id" Type="Funcionario" IsForeignKey="true" />
     </Type>
   </Table>

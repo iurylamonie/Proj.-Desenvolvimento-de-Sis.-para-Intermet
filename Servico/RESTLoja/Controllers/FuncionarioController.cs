@@ -67,5 +67,27 @@ namespace RESTLoja.Controllers
             dc.Funcionarios.DeleteOnSubmit(r);
             dc.SubmitChanges();
         }
+
+        [AcceptVerbs("GET")]
+        [Route("ConsultarPorIdentidade/{identidade}")]
+        public Models.Funcionario ConsultarPorIdentidade(string identidade)
+        {
+            Models.LojaDataContext dc = new Models.LojaDataContext();
+            var funcionario = (from f in dc.Funcionarios
+                               where f.identidade == identidade
+                               select f).Single();
+            return funcionario;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("ConsultarPorId/{id}")]
+        public Models.Funcionario ConsultarPorId(int id)
+        {
+            Models.LojaDataContext dc = new Models.LojaDataContext();
+            var funcionario = (from f in dc.Funcionarios
+                               where f.id == id
+                               select f).Single();
+            return funcionario;
+        }
     }
 }
