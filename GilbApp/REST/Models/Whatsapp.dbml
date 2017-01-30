@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="20131011110169" Class="WhatsappDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=valera;Initial Catalog=20131011110169;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="_20131011110169ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="uri" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Usuario_GrupoUsuario" Member="GrupoUsuarios" ThisKey="id" OtherKey="usuario_id" Type="GrupoUsuario" />
+      <Association Name="Usuario_Grupo" Member="Grupos" ThisKey="id" OtherKey="idAdm" Type="Grupo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrupoUsuario" Member="GrupoUsuarios">
+    <Type Name="GrupoUsuario">
+      <Column Name="usuario_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="grupo_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Usuario_GrupoUsuario" Member="Usuario" ThisKey="usuario_id" OtherKey="id" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Grupo_GrupoUsuario" Member="Grupo" ThisKey="grupo_id" OtherKey="id" Type="Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grupo" Member="Grupos">
+    <Type Name="Grupo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="idAdm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupo_GrupoUsuario" Member="GrupoUsuarios" ThisKey="id" OtherKey="grupo_id" Type="GrupoUsuario" />
+      <Association Name="Usuario_Grupo" Member="Usuario" ThisKey="idAdm" OtherKey="id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
