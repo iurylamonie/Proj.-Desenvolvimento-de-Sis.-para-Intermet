@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace ModeloLoja
 {
@@ -11,16 +13,57 @@ namespace ModeloLoja
     {
         private int id;
         private string nome, telefone, identidade, ct, observacao;
-        private HttpClient httpClient
+        private double salario;
+        private bool motorista, tecnico;
+        private static HttpClient httpClient;
             
-        public int Id { get { return id} set { id = value} }
-        public int Nome { get { return nome} set { nome = value} }
-        public int Telefone { get { return telefone} set { telefone = value} }
-        public int Identidade { get { return identidade} set { identidade = value} }
-        public int Ct { get { return ct} set { ct = value} }
-        public int Observacao { get { return observacao} set { observacao = value} }
-        
-        private void IniciarHtttp()
+        public int Id { get { return id; } set { id = value; } }
+        public string Nome { get { return nome; } set { nome = value; } }
+        public string Telefone { get { return telefone; } set { telefone = value; } }
+        public string Identidade { get { return identidade; } set { identidade = value; } }
+        public string Ct { get { return ct; } set { ct = value; } }
+        public string Observacao { get { return observacao; } set { observacao = value; } }
+
+        public double Salario
+        {
+            get
+            {
+                return salario;
+            }
+
+            set
+            {
+                salario = value;
+            }
+        }
+
+        public bool Motorista
+        {
+            get
+            {
+                return motorista;
+            }
+
+            set
+            {
+                motorista = value;
+            }
+        }
+
+        public bool Tecnico
+        {
+            get
+            {
+                return tecnico;
+            }
+
+            set
+            {
+                tecnico = value;
+            }
+        }
+
+        private static void IniciarHttp()
         {
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("atualizar");
@@ -40,7 +83,7 @@ namespace ModeloLoja
          public static void Registrar(Funcionario _funcionario)
         {
             IniciarHttp();
-            string s = "=" + JsonConvert.SerializeObject(_chamado);
+            string s = "=" + JsonConvert.SerializeObject(_funcionario);
             var content = new StringContent(s, Encoding.UTF8, "application/x-www-form-urlencoded");
             httpClient.PostAsync("api/Funcionario/Registrar", content);
         }
@@ -62,7 +105,7 @@ namespace ModeloLoja
         public static Funcionario ConsultarPorId(int _id)
         {
             IniciarHttp();
-            var response = httpClient.GetAsync("api/Funcionario/ConsultarPorId/" _id);
+            var response = httpClient.GetAsync("api/Funcionario/ConsultarPorId/" + _id);
             HttpResponseMessage rm = response.Result;
             string str = rm.Content.ReadAsStringAsync().Result;
             var funcionario = JsonConvert.DeserializeObject<Funcionario>(str);
@@ -72,7 +115,7 @@ namespace ModeloLoja
         public static Funcionario ConsultarPorIdentidade(int _identidade)
         {
             IniciarHttp();
-            var response = httpClient.GetAsync("api/Funcionario/ConsultarPorIdentidade/" _identidade);
+            var response = httpClient.GetAsync("api/Funcionario/ConsultarPorIdentidade/" + _identidade);
             HttpResponseMessage rm = response.Result;
             string str = rm.Content.ReadAsStringAsync().Result;
             var funcionario = JsonConvert.DeserializeObject<Funcionario>(str);

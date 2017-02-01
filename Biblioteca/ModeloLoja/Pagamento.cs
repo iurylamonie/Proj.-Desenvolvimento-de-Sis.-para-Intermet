@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace ModeloLoja
 {
@@ -10,17 +13,18 @@ namespace ModeloLoja
     {
         private int id, funcionario_id, mesReferente, anoReferente;
         private double valorPago;
-        private datetime dataPagamento;
-        private HttpClient httpClient;
+        private DateTime dataPagamento;
+        private static HttpClient httpClient;
         
-        public int Id { get{ return id } set { id = value } }
-        public int Funcionario_id { get{ return funcionario_id } set { funcionario_id = value } }
-        public int MesReferente { get{ return mesReferente } set { mesReferente = value } }
-        public int AnoReferente { get{ return anoReferente } set { anoReferente = value } }
-        public double ValorPago { get{ return valorPago } set { valorPago = value } }
-        public datetime DataPagamento { get{ return dataPagamento } set { dataPagamento = value } }
-        
-        private void IniciarHtttp()
+        public int Id { get{ return id; } set { id = value; } }
+        public int Funcionario_id { get{ return funcionario_id; } set { funcionario_id = value; } }
+        public int MesReferente { get{ return mesReferente; } set { mesReferente = value; } }
+        public int AnoReferente { get{ return anoReferente; } set { anoReferente = value; } }
+        public double ValorPago { get{ return valorPago; } set { valorPago = value; } }
+        public DateTime DataPagamento { get{ return dataPagamento; } set { dataPagamento = value; } }
+
+
+        private static void IniciarHttp()
         {
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("atualizar");
