@@ -112,8 +112,6 @@ namespace REST.Models
 		
 		private EntitySet<GrupoUsuario> _GrupoUsuarios;
 		
-		private EntitySet<Grupo> _Grupos;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -131,11 +129,10 @@ namespace REST.Models
 		public Usuario()
 		{
 			this._GrupoUsuarios = new EntitySet<GrupoUsuario>(new Action<GrupoUsuario>(this.attach_GrupoUsuarios), new Action<GrupoUsuario>(this.detach_GrupoUsuarios));
-			this._Grupos = new EntitySet<Grupo>(new Action<Grupo>(this.attach_Grupos), new Action<Grupo>(this.detach_Grupos));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id
 		{
 			get
@@ -228,19 +225,6 @@ namespace REST.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Grupo", Storage="_Grupos", ThisKey="id", OtherKey="idAdm")]
-		public EntitySet<Grupo> Grupos
-		{
-			get
-			{
-				return this._Grupos;
-			}
-			set
-			{
-				this._Grupos.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -268,18 +252,6 @@ namespace REST.Models
 		}
 		
 		private void detach_GrupoUsuarios(GrupoUsuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Grupos(Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Grupos(Grupo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;
@@ -468,8 +440,6 @@ namespace REST.Models
 		
 		private EntitySet<GrupoUsuario> _GrupoUsuarios;
 		
-		private EntityRef<Usuario> _Usuario;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -485,11 +455,10 @@ namespace REST.Models
 		public Grupo()
 		{
 			this._GrupoUsuarios = new EntitySet<GrupoUsuario>(new Action<GrupoUsuario>(this.attach_GrupoUsuarios), new Action<GrupoUsuario>(this.detach_GrupoUsuarios));
-			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id
 		{
 			get
@@ -540,10 +509,6 @@ namespace REST.Models
 			{
 				if ((this._idAdm != value))
 				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnidAdmChanging(value);
 					this.SendPropertyChanging();
 					this._idAdm = value;
@@ -563,40 +528,6 @@ namespace REST.Models
 			set
 			{
 				this._GrupoUsuarios.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Grupo", Storage="_Usuario", ThisKey="idAdm", OtherKey="id", IsForeignKey=true)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Grupos.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Grupos.Add(this);
-						this._idAdm = value.id;
-					}
-					else
-					{
-						this._idAdm = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Usuario");
-				}
 			}
 		}
 		
