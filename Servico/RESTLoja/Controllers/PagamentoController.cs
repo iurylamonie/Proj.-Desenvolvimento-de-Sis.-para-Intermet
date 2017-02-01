@@ -47,12 +47,13 @@ namespace RESTLoja.Controllers
         }
 
         [AcceptVerbs("GET")]
-        [Route("Listar/{nomeFuncionario}")]
-        public List<Models.Pagamento> Listar(string nomeFuncionario)
+        [Route("Listar/{pagamento}")]
+        public List<Models.Pagamento> Listar(Models.Pagamento pagamento)
         {
+            
             Models.LojaDataContext dc = new Models.LojaDataContext();
             var pagamentos = from p in dc.Pagamentos
-                             where p.Funcionario.nome == nomeFuncionario
+                             where p.funcionario_id == pagamento.funcionario_id && p.mesReferente == pagamento.mesReferente && p.anoReferente == pagamento.anoReferente
                              select p;
             return pagamentos.ToList();
         }

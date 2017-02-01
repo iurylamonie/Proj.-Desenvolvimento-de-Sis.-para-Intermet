@@ -13,5 +13,27 @@ namespace Loja.Funcionario
         {
 
         }
+
+        protected void ButtonIncluir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Funcionario/NovoFuncionario.aspx");
+        }
+
+        protected void GridViewFuncionarios_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Excluir")
+            {
+               int index = int.Parse(e.CommandArgument.ToString());
+               string id = GridViewFuncionarios.Rows[index].Cells[0].Text;
+                ModeloLoja.Funcionario.Deletar(int.Parse(id));
+                Response.Redirect("~/Funcionario/Principal.aspx");
+            }
+            else if (e.CommandName == "Alterar")
+            {
+                int index = int.Parse(e.CommandArgument.ToString());
+                Session["funcionarioId"] = GridViewFuncionarios.Rows[index].Cells[0].Text;
+                Response.Redirect("~/Funcionario/AlterarFuncionario.aspx");
+            }
+        }
     }
 }

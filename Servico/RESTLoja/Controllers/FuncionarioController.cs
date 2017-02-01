@@ -89,5 +89,16 @@ namespace RESTLoja.Controllers
                                select f).Single();
             return funcionario;
         }
+
+        [AcceptVerbs("GET")]
+        [Route("ConsultarPorNome/{nome}")]
+        public Models.Funcionario ConsultarPorNome(string nome)
+        {
+            Models.LojaDataContext dc = new Models.LojaDataContext();
+            var funcionario = (from f in dc.Funcionarios
+                               where f.nome == nome
+                               select f).Single();
+            return funcionario;
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace ModeloLoja
 {
-    class Pagamento
+    public class Pagamento
     {
         private int id, funcionario_id, mesReferente, anoReferente;
         private double valorPago;
@@ -27,7 +27,7 @@ namespace ModeloLoja
         private static void IniciarHttp()
         {
             httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("atualizar");
+            httpClient.BaseAddress = new Uri("http://localhost:52736/");
         }
         
         public static void Registrar(Pagamento _pagamento)
@@ -53,10 +53,18 @@ namespace ModeloLoja
         }
         
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Pagamento> Listar (string _nomeFuncionario)
+        public static List<Pagamento> Listar (string _nomeFuncionario, int _mesReferente, int _anoReferente)
         {
             IniciarHttp();
-            var response = httpClient.GetAsync("api/Pagamento/Listar/" + _nomeFuncionario);
+
+            var r = httpClient.GetAsync("api/Funcionario/ConsultarPorNome/" + _nomeFuncionario);
+            HttpResponseMessage rma = r.Result;
+            string stra = rma.Content.ReadAsStringAsync().Result;
+            ModeloLoja.Funcionario fun = JsonConvert.DeserializeObject<ModeloLoja.Funcionario>(stra);
+
+            Pagamento p = new Pagamento { Funcionario_id = fun.Id, MesReferente = _mesReferente, AnoReferente = _anoReferente };
+
+            var response = httpClient.GetAsync("api/Pagamento/Listar/" + p );
             HttpResponseMessage rm = response.Result;
             string str = rm.Content.ReadAsStringAsync().Result;
             var pagamentos = JsonConvert.DeserializeObject<List<Pagamento>>(str);

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Net.Http;
 using Newtonsoft.Json;
@@ -66,7 +64,7 @@ namespace ModeloLoja
         private static void IniciarHttp()
         {
             httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("atualizar");
+            httpClient.BaseAddress = new Uri("http://localhost:52736/");
         }
         
         [DataObjectMethod(DataObjectMethodType.Select)]
