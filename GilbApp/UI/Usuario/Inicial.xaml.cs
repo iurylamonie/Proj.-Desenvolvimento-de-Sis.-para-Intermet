@@ -12,10 +12,14 @@ namespace UI.Usuario
 {
     public partial class Inicial : PhoneApplicationPage
     {
-        public Inicial()
+        public  Inicial()
         {
             InitializeComponent();
-            TextBlockNomeLogado.Text = (App.Current as App).NomeUsuarioLogado;
+            TextBlockNomeLogado.Text = (App.Current as App).UsuarioLogado.Nome;
+
+            List<Modelo.Usuario> amigos = Modelo.Usuario.Listar().Result;
+            listBoxAmigos.ItemsSource = amigos;
+                    
         }
     }
 }

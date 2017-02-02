@@ -18,7 +18,7 @@ namespace UI
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        public String NomeUsuarioLogado { get; set; }
+        public Modelo.Usuario UsuarioLogado{ get; set; }
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
