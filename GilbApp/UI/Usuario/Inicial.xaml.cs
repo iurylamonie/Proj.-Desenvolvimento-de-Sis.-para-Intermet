@@ -46,7 +46,7 @@ namespace UI.Usuario
 
         private void buttonNovaMs_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(New Uri("/Usuario/NovaMensagem.xaml", UriKind.Relative));
         }
     }
 }
