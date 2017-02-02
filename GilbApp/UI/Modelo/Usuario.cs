@@ -30,7 +30,7 @@ namespace UI.Modelo
             return usuarios;
         }
 
-        public static async Task<String> ConsultarPorNome(string _nome)
+        public static async Task<string> ConsultarPorNome(string _nome)
         {
             IniciarHttp();
             var responseMessage = await httpClient.GetAsync("api/Usuario/ConsultarPornome/" + _nome);
