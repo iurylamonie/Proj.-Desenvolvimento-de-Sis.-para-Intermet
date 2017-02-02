@@ -89,5 +89,15 @@ namespace REST.Controllers
             dc.SubmitChanges();
         }
 
+        [AcceptVerbs("GET")]
+        [Route("PuxarUsuario/{nome}")]
+        public Models.Usuario PuxarUsuario(string nome)
+        {
+            Models.WhatsappDataContext dataContext = new Models.WhatsappDataContext();
+            var r = (from u in dataContext.Usuarios
+                    where u.nome == nome
+                    select u).Single();
+            return r;
+        }
     }
 }
