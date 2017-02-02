@@ -75,6 +75,12 @@ namespace REST.Controllers
             var r = (from g in dc.Grupos
                      where g.id == id
                      select g).Single();
+
+            var membros = from m in dc.GrupoUsuarios
+                          where m.grupo_id == r.id
+                          select m;
+
+            dc.GrupoUsuarios.DeleteAllOnSubmit(membros);
             dc.Grupos.DeleteOnSubmit(r);
             dc.SubmitChanges();
         }

@@ -29,8 +29,8 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock x:Name="textBlockDestinatario" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Para: Gomes RX RX" VerticalAlignment="Top" Margin="23,32,0,0"/>
             <TextBox x:Name="textBoxMensagem" HorizontalAlignment="Left" Height="516" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="456" Margin="0,64,0,0"/>
-            <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="238,587,0,0"/>
-            <Button x:Name="buttonCanceler" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,586,0,0"/>
+            <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="238,587,0,0" Click="buttonEnviar_Click"/>
+            <Button x:Name="buttonCanceler" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,586,0,0" Click="buttonCanceler_Click"/>
         </Grid>
        
     </Grid>

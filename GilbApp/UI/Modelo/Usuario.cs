@@ -61,12 +61,12 @@ namespace UI.Modelo
             await httpClient.DeleteAsync("api/Usuario/Deletar/" + _nome);
         }
 
-        public static async void Alterar(Usuario _usuario)
+        public static async void Alterar(string _antigoNome, Usuario _usuario)
         {
             IniciarHttp();
             string s = "=" + JsonConvert.SerializeObject(_usuario);
             var content = new StringContent(s, Encoding.UTF8, "application/x-www-form-urlencoded");
-            await httpClient.PutAsync("api/Usuario/Alterar/" + _usuario.Nome, content);
+            await httpClient.PutAsync("api/Usuario/Alterar/" + _antigoNome, content);
         }
 
     }

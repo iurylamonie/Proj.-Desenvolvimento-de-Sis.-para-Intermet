@@ -16,5 +16,15 @@ namespace UI.Usuario
         {
             InitializeComponent();
         }
+
+        private void buttonCanceler_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonEnviar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

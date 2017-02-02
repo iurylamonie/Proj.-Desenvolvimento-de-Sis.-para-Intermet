@@ -2,43 +2,43 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Whatsapp">
   <DataContextMoniker Name="/WhatsappDataContext" />
   <nestedChildShapes>
-    <classShape Id="4470bb38-ae57-4906-9c73-86a594ef252b" absoluteBounds="3.5, 0.875, 2, 1.3862939453124998">
-      <DataClassMoniker Name="/WhatsappDataContext/Grupo" />
-      <nestedChildShapes>
-        <elementListCompartment Id="648d211d-2333-4b6f-a84e-9602669eb01b" absoluteBounds="3.515, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="ee0ab25f-444c-45b7-b8e6-958fcfa44969" absoluteBounds="0.75, 0.875, 2, 1.3862939453124998">
+    <classShape Id="6dd8cfe6-d58a-48f9-8182-21c4b98a4b6e" absoluteBounds="0.75, 0.875, 2, 1.3862939453124998">
       <DataClassMoniker Name="/WhatsappDataContext/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="59020fdc-ac6b-4aca-881c-8e86c9b5e7b4" absoluteBounds="0.765, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d258cf88-cbbf-4d46-8335-e1ffb0abfb4f" absoluteBounds="0.765, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="75933912-dc6a-407f-8efb-61039f11c8ff" absoluteBounds="6.25, 1, 2, 1.1939925130208335">
+    <classShape Id="954d7547-52ab-4eec-849c-b6f70e13a1c0" absoluteBounds="3.5, 0.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/WhatsappDataContext/Grupo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="117a6d96-a0f2-42ad-a4a5-d1b1365337ed" absoluteBounds="3.515, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcae1304-365d-484d-a2ae-1bf6fa33aa28" absoluteBounds="6.25, 0.875, 2, 1.3862939453124998">
       <DataClassMoniker Name="/WhatsappDataContext/GrupoUsuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="9ad45797-c4ae-4b95-befb-def31673a4a4" absoluteBounds="6.265, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7356caac-38a7-4069-ac6d-d043f0dab3db" absoluteBounds="6.265, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.75 : 1.56814697265625); (3.5 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/WhatsappDataContext/Usuario/Usuario_Grupo" />
       <nodes>
-        <classShapeMoniker Id="ee0ab25f-444c-45b7-b8e6-958fcfa44969" />
-        <classShapeMoniker Id="4470bb38-ae57-4906-9c73-86a594ef252b" />
+        <classShapeMoniker Id="6dd8cfe6-d58a-48f9-8182-21c4b98a4b6e" />
+        <classShapeMoniker Id="954d7547-52ab-4eec-849c-b6f70e13a1c0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 1.59699625651042); (6.25 : 1.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 1.56814697265625); (6.25 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/WhatsappDataContext/Grupo/Grupo_GrupoUsuario" />
       <nodes>
-        <classShapeMoniker Id="4470bb38-ae57-4906-9c73-86a594ef252b" />
-        <classShapeMoniker Id="75933912-dc6a-407f-8efb-61039f11c8ff" />
+        <classShapeMoniker Id="954d7547-52ab-4eec-849c-b6f70e13a1c0" />
+        <classShapeMoniker Id="dcae1304-365d-484d-a2ae-1bf6fa33aa28" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.2612939453125); (3.125 : 2.6362939453125); (3.125 : 2.56899251302083); (5.875 : 2.56899251302083); (6.25 : 2.19399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 2.2612939453125); (3.125 : 2.6362939453125); (5.875 : 2.6362939453125); (6.25 : 2.2612939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WhatsappDataContext/Usuario/Usuario_GrupoUsuario" />
       <nodes>
-        <classShapeMoniker Id="ee0ab25f-444c-45b7-b8e6-958fcfa44969" />
-        <classShapeMoniker Id="75933912-dc6a-407f-8efb-61039f11c8ff" />
+        <classShapeMoniker Id="6dd8cfe6-d58a-48f9-8182-21c4b98a4b6e" />
+        <classShapeMoniker Id="dcae1304-365d-484d-a2ae-1bf6fa33aa28" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

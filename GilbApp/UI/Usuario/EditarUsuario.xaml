@@ -30,8 +30,8 @@
             <TextBlock x:Name="textBlockUsuario" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nome do Usuário:" VerticalAlignment="Top" Margin="23,45,0,0"/>
             <TextBox x:Name="textBoxNovoNome" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="456" Margin="0,72,0,0"/>
 
-            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,186,0,0" Grid.Row="1"/>
-            <Button x:Name="buttonAlterar" Content="Alterar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,186,0,0" Grid.Row="1"/>
+            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,186,0,0" Grid.Row="1" Click="buttonCancelar_Click"/>
+            <Button x:Name="buttonAlterar" Content="Alterar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="226,186,0,0" Grid.Row="1" Click="buttonAlterar_Click"/>
         </Grid>
         
     </Grid>

@@ -16,5 +16,15 @@ namespace UI.Grupo
         {
             InitializeComponent();
         }
+
+        private void buttonCanceler_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonCriar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

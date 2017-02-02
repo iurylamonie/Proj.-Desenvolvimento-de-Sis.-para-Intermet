@@ -16,5 +16,25 @@ namespace UI.Grupo.Membros
         {
             InitializeComponent();
         }
+
+        private void buttonNovaMs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonNovoMembro_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonRemover_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

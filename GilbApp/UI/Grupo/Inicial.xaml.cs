@@ -16,5 +16,41 @@ namespace UI.Grupo
         {
             InitializeComponent();
         }
+
+        private async void buttonAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            List<Modelo.Grupo> grupos = await Modelo.Grupo.Listar((App.Current as App).IdUsuarioLogado);
+            listBoxGrupos.ItemsSource = grupos;
+        }
+
+        private void buttonDeletar_Click(object sender, RoutedEventArgs e)
+        {
+            Modelo.Grupo.Deletar((listBoxGrupos.SelectedItem as Modelo.Grupo).Id);
+        }
+
+        private void buttonNovoGrupo_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Grupo/NovoGrupo.xaml", UriKind.Relative));
+        }
+
+        private void btnPaginaUsuario_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Usuario/Inicial.xaml", UriKind.Relative));
+        }
+
+        private void btnPaginaGrupo_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Grupo/Inicial.xaml", UriKind.Relative));
+        }
+
+        private void buttonNovaMs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonDetalhar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

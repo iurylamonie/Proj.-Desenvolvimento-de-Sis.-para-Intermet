@@ -24,8 +24,9 @@ namespace UI
 
         private void buttonEntrar_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current as App).UsuarioLogado.Nome = textBoxNomeUsuario.Text;
+            (App.Current as App).NomeUsuarioLogado = textBoxNomeUsuario.Text;
             NavigationService.Navigate(new Uri("/Usuario/Inicial.xaml", UriKind.Relative));
+            (App.Current as App).IdUsuarioLogado = 1;
         }
 
         // Sample code for building a localized ApplicationBar
