@@ -45,12 +45,12 @@ namespace UI.Grupo
 
         private void buttonNovaMs_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Grupo/NovaMensagem.xaml", UriKind.Relative));
         }
 
         private void buttonDetalhar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Grupo/Membro/ListarMembros.xaml", UriKind.Relative));
         }
     }
 }
