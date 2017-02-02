@@ -197,11 +197,13 @@
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembroController.cs" />
+    <Compile Include="Controllers\MensagemController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Mensagem.cs" />
     <Compile Include="Models\Whatsapp.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -25,11 +25,11 @@ namespace UI.Grupo
 
         private void buttonAlterar_Click(object sender, RoutedEventArgs e)
         {
-            Modelo.Grupo grupo = new Modelo.Grupo 
+            Modelo.Grupo grupo = new Modelo.Grupo
             {
                 Id = (App.Current as App).IdGrupoSelecionado,
                 Descricao = textBoxNovoGrupo.Text
-            }
+            };
             
             Modelo.Grupo.Alterar(grupo);
             (App.Current as App).IdGrupoSelecionado = 0;

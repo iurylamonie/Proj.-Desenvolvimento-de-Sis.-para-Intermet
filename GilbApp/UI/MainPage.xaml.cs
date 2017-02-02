@@ -8,6 +8,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using UI.Resources;
+using Microsoft.Phone.Notification;
+using System.Text;
 
 namespace UI
 {
@@ -23,19 +25,19 @@ namespace UI
             //BuildLocalizedApplicationBar();
         }
 
-        private void buttonEntrar_Click(object sender, RoutedEventArgs e)
+        private async void buttonEntrar_Click(object sender, RoutedEventArgs e)
         {
             (App.Current as App).NomeUsuarioLogado = textBoxNomeUsuario.Text;
             NavigationService.Navigate(new Uri("/Usuario/Inicial.xaml", UriKind.Relative));
             (App.Current as App).IdUsuarioLogado = 1;
-            
-            
+            HttpNotificationChannel canalPush = HttpNotificationChannel.Find(nomeCanal);
+
             try
             {
                 if (canalPush == null)
                 {
                     //canal não existe
-                    if (Modelo.Usuario.ConsultarPorNome(textBoxNomeUsuario.Text) == "")
+                    if (await Modelo.Usuario.ConsultarPorNome(textBoxNomeUsuario.Text) == "")
                     {
                         //Usuario existe
                         canalPush = new HttpNotificationChannel(nomeCanal);
@@ -59,7 +61,7 @@ namespace UI
                 else
                 {
                     //Canal existe
-                    if (Modelo.Usuario.ConsultarPorNome(textBoxNomeUsuario.Text) != "")
+                    if (await Modelo.Usuario.ConsultarPorNome(textBoxNomeUsuario.Text) != "")
                     {
                         //Usuario existe
                         canalPush.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(AtualizarUriCanal);
@@ -89,7 +91,7 @@ namespace UI
                     System.Diagnostics.Debug.WriteLine(e.ChannelUri.ToString());
                     Modelo.Usuario u = new Modelo.Usuario
                     {
-                        Nome = textBoxNomeUsuario.Text;,
+                        Nome = textBoxNomeUsuario.Text,
                         Uri = e.ChannelUri.ToString()
                     };
                     Modelo.Usuario.AlterarUri(u);
@@ -104,10 +106,10 @@ namespace UI
                     System.Diagnostics.Debug.WriteLine(e.ChannelUri.ToString());
                     Modelo.Usuario u = new Modelo.Usuario
                     {
-                        Nome = textBoxNomeUsuario.Text;,
+                        Nome = textBoxNomeUsuario.Text,
                         Uri = e.ChannelUri.ToString()
                     };
-                    Modelo.Usuario.Criar(u);
+                    Modelo.Usuario.Inserir(u);
                 }
                 );
         }

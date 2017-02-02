@@ -20,6 +20,7 @@ namespace UI
 
         public string NomeUsuarioLogado{ get; set; }
         public int IdUsuarioLogado { get; set; }
+        public string NomeUsuarioSelecionado { get; set; }
         public int IdGrupoSelecionado {get;set;}
         public string DescricaoGrupoSelecionado { get;set; }
         /// <summary>

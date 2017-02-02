@@ -12,10 +12,14 @@ namespace UI.Usuario
 {
     public partial class NovaMensagem : PhoneApplicationPage
     {
+        Modelo.Usuario usuarioDestinario;
         public NovaMensagem()
         {
             InitializeComponent();
-            TextBlockNomeLogado.Text = (App.Current as App).NomeUsuarioLogado;
+            textBlockNomeUsuario.Text = (App.Current as App).NomeUsuarioLogado;
+            textBlockDestinatario.Text = (App.Current as App).NomeUsuarioSelecionado;
+
+           usuarioDestinario = Modelo.Usuario.PuxarUsuario((App.Current as App).NomeUsuarioSelecionado).Result;
         }
 
         private void buttonCanceler_Click(object sender, RoutedEventArgs e)
@@ -25,7 +29,12 @@ namespace UI.Usuario
 
         private void buttonEnviar_Click(object sender, RoutedEventArgs e)
         {
-            
+            Modelo.Mensagem mensagem = new Modelo.Mensagem
+            {
+                Remetente = (App.Current as App).NomeUsuarioLogado,
+                Conteudo = textBoxMensagem.Text
+            };
+            Modelo.Mensagem.Enviar(usuarioDestinario.Uri, mensagem);
         }
     }
 }

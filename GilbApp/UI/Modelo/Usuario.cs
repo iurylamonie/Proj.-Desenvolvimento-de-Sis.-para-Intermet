@@ -69,5 +69,13 @@ namespace UI.Modelo
             await httpClient.PutAsync("api/Usuario/Alterar/" + _antigoNome, content);
         }
 
+        public static async Task<Usuario> PuxarUsuario(string _nome)
+        {
+            IniciarHttp();
+            var responseMessage = await httpClient.GetAsync("api/Usuario/PuxarUsuario/"+ _nome);
+            string str = responseMessage.Content.ReadAsStringAsync().Result;
+            var usuario = JsonConvert.DeserializeObject<Usuario>(str);
+            return usuario;
+        }
     }
 }
