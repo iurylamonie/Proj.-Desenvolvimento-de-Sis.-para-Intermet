@@ -15,16 +15,26 @@ namespace UI.Grupo
         public EditarGrupo()
         {
             InitializeComponent();
+            textBoxNovoGrupo.Text = (App.Current as App).DescricaoGrupoSelecionado;
         }
 
         private void buttonCancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
 
         private void buttonAlterar_Click(object sender, RoutedEventArgs e)
         {
-
+            Modelo.Grupo grupo = new Modelo.Grupo 
+            {
+                Id = (App.Current as App).IdGrupoSelecionado,
+                Descricao = textBoxNovoGrupo.Text
+            }
+            
+            Modelo.Grupo.Alterar(grupo);
+            (App.Current as App).IdGrupoSelecionado = 0;
+            (App.Current as App).DescricaoGrupoSelecionado = "";
+            NavigationService.Navigate(new Uri("/Grupo/inicial.xaml", UriKind.Relative));
         }
     }
 }
