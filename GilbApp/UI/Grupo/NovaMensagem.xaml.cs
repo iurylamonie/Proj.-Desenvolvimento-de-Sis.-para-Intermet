@@ -19,7 +19,7 @@ namespace UI.Grupo
 
         private void buttonCanceler_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
 
         private void buttonEnviar_Click(object sender, RoutedEventArgs e)
