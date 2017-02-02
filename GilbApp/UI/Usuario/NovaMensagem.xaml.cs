@@ -15,6 +15,7 @@ namespace UI.Usuario
         public NovaMensagem()
         {
             InitializeComponent();
+            TextBlockNomeLogado.Text = (App.Current as App).NomeUsuarioLogado;
         }
 
         private void buttonCanceler_Click(object sender, RoutedEventArgs e)
